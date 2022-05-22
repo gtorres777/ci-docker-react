@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+
+  nginx_frontend:
+    image: 'biotux7/ci-docker-react:latest'
+    ports:
+     - 3000:3000
+
