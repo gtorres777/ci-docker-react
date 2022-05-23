@@ -1,0 +1,31 @@
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Build docker Image to test
+        run: docker build -t biotux7/ci-docker-react-test -f ./frontend/Dockerfile.dev ./frontend
+      - name: test 
+        run: docker run -e CI=true biotux7/ci-docker-react-test npm test
+
+  build_and_push:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Login to docker-cli
+        run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_TOKEN }}
+      - name: Build production docker Image
+        run: docker build -t biotux7/ci-docker-react ./frontend
+      - name: Push production docker Image
+        run: docker push biotux7/ci-docker-react
