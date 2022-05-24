@@ -35,6 +35,5 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## How does the github workflow works?
 
-It has 2 jobs that will run when a change is pushed to the `main` branch of the repository, the first one will build a test image where it can run the tests for the React app and once it <br />
-finishes successfully it will run the other job where it will build an image with the production files from React, integrate this ones into a nginx service and <br />
-push the image to Dockerhub
+It has 2 jobs that will run when a change is pushed to the `main` branch of the repository, the first one will build a test image where it can run the tests for the React app and once it
+finishes successfully it will run the other job where it will build an image with the production files from React, integrate this ones into a nginx service and push the image to Dockerhub
