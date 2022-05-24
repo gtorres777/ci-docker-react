@@ -15,7 +15,7 @@ jobs:
       - name: Build docker Image to test
         run: docker build -t biotux7/ci-docker-react-test -f ./frontend/Dockerfile.dev ./frontend
       - name: test 
-        run: docker run -e CI=true biotux7/ci-docker-react-test npm test
+        run: docker run biotux7/ci-docker-react-test npm test
 
   build_and_push:
     needs: test
