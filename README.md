@@ -28,7 +28,7 @@ If you want to change the port where it will be running the service, you can do 
 
 In the project directory, you can run:
 
-### `docker compose -f docker-compose-dev.yml up`
+### `docker compose -f docker-compose-prod.yml up`
 
 Runs the project in production mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
